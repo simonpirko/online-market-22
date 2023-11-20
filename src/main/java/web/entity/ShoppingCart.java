@@ -1,4 +1,4 @@
-package web.controller.entity;
+package web.entity;
 
 import lombok.*;
 
