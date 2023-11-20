@@ -1,9 +1,6 @@
 package web.controller.entity;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -13,9 +10,9 @@ import javax.persistence.*;
 @Setter
 @Builder
 @ToString
+@NoArgsConstructor
+@AllArgsConstructor
 public class Review {
-    public Review() {
-    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -44,7 +41,5 @@ public class Review {
 
     @Column(name = "comment")
     private String comment;
-
-
 
 }
