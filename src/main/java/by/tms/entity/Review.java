@@ -1,4 +1,4 @@
-package web.entity;
+package by.tms.entity;
 
 import lombok.*;
 

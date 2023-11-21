@@ -1,4 +1,4 @@
-package web.entity;
+package by.tms.entity;
 
 /*
     @author Ilya Moiseenko on 19.11.23

@@ -4,7 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="84803f02-2bfc-44ac-8862-1be5b9c7e5a8" name="Changes" comment="Save Unversioned files" />
+    <list default="true" id="84803f02-2bfc-44ac-8862-1be5b9c7e5a8" name="Changes" comment="Save Unversioned files">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/online_market_22_war.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/online_market_22_war_exploded.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/controller/IndexController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/tms/controller/IndexController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/entity/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/tms/entity/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/entity/ProductCategory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/tms/entity/ProductCategory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/entity/Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/tms/entity/Review.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/entity/ShoppingCart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/tms/entity/ShoppingCart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/entity/Variation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/tms/entity/Variation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/entity/VariationOption.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/tms/entity/VariationOption.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -56,6 +67,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
     "last_opened_file_path": "C:/Users/Nastya/IdeaProjects/ServletCalculator",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
