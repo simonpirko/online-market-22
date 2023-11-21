@@ -4,18 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="84803f02-2bfc-44ac-8862-1be5b9c7e5a8" name="Changes" comment="Save Unversioned files">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/online_market_22_war.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/online_market_22_war_exploded.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/web/controller/IndexController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/tms/controller/IndexController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/web/entity/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/tms/entity/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/web/entity/ProductCategory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/tms/entity/ProductCategory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/web/entity/Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/tms/entity/Review.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/web/entity/ShoppingCart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/tms/entity/ShoppingCart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/web/entity/Variation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/tms/entity/Variation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/web/entity/VariationOption.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/tms/entity/VariationOption.java" afterDir="false" />
-    </list>
+    <list default="true" id="84803f02-2bfc-44ac-8862-1be5b9c7e5a8" name="Changes" comment="Package web was deleted. All files from there were moved to by/tms" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -131,7 +120,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700595235037</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Package web was deleted. All files from there were moved to by/tms">
+      <option name="closed" value="true" />
+      <created>1700600203822</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1700600203822</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -141,6 +138,7 @@
     <MESSAGE value="Review Entity and ShoppingCart Entity were created" />
     <MESSAGE value="Bugs with pull request were fixed" />
     <MESSAGE value="Save Unversioned files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Save Unversioned files" />
+    <MESSAGE value="Package web was deleted. All files from there were moved to by/tms" />
+    <option name="LAST_COMMIT_MESSAGE" value="Package web was deleted. All files from there were moved to by/tms" />
   </component>
 </project>
