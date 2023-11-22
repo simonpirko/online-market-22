@@ -4,6 +4,7 @@ package by.tms.dao.productCategoryDao;
     @author Ilya Moiseenko on 22.11.23
 */
 
+import by.tms.dao.CrudOperation;
 import by.tms.entity.ProductCategory;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -15,7 +16,7 @@ import java.util.Optional;
 
 @Repository
 @Transactional
-public class HibernateProductCategoryDao implements ProductCategoryDao {
+public class HibernateProductCategoryDao implements CrudOperation<ProductCategory> {
 
     private final SessionFactory sessionFactory;
 
