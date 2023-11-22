@@ -19,9 +19,6 @@ public class ProductCategory {
     @Column(name = "category_name", unique = true, nullable = false)
     private String categoryName;
 
-    @Column(name = "price", nullable = false)
-    private BigDecimal price;
-
     @OneToMany
     private List<Variation> variations;
 
