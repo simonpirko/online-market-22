@@ -24,7 +24,9 @@ public  class User {
     private String password;
 
 
-
+    @OneToMany
+    @JoinColumn(name = "user_id",referencedColumnName = "id")
+    public List<Shop> ownedShop;
 
 
 }
