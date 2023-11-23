@@ -8,8 +8,8 @@ import java.util.Optional;
 
 public interface CrudOperation<T> {
 
-    void save(T productCategory);
-    Optional<T> findById(Long id);
-    void remove(T productCategory);
-    void update(T updated);
+    void save(T entity);
+    Optional<T> findById(Long id, Class<T> clazz);
+    void remove(T entity);
+    void update(T updatedEntity);
 }
