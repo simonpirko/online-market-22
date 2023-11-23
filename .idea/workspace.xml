@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="84803f02-2bfc-44ac-8862-1be5b9c7e5a8" name="Changes" comment="workspace.xml">
-      <change afterPath="$PROJECT_DIR$/src/main/java/by/tms/dao/Dao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/by/tms/dao/shoppingCartDao/HibernateShoppingCartDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/by/tms/dao/shoppingCartDao/ShoppingCartDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+    <list default="true" id="84803f02-2bfc-44ac-8862-1be5b9c7e5a8" name="Changes" comment="Some packages were moved">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -20,14 +16,13 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
-        <option value="Interface" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="Shopping_cart_Entity_and_Review_Entity" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -49,9 +44,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 4
-}</component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 5
+}]]></component>
   <component name="ProjectId" id="2YRiQMYnzbBLKlC3BZnNZXkpxD6" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -71,11 +66,6 @@
     "nodejs_package_manager_path": "npm",
     "spring.configuration.checksum": "439a800353995b088b793d6dec5896a6",
     "vue.rearranger.settings.migration": "true"
-  },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
-    ]
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -90,10 +80,6 @@
       <workItem from="1700546989943" duration="696000" />
       <workItem from="1700576070406" duration="3637000" />
       <workItem from="1700595136251" duration="411000" />
-      <workItem from="1700633802849" duration="3534000" />
-      <workItem from="1700683439915" duration="2594000" />
-      <workItem from="1700686045019" duration="5073000" />
-      <workItem from="1700721797188" duration="6282000" />
     </task>
     <task id="LOCAL-00001" summary="Review Entity and ShoppingCart Entity were created">
       <option name="closed" value="true" />
@@ -135,13 +121,13 @@
       <option name="project" value="LOCAL" />
       <updated>1700595235037</updated>
     </task>
-    <task id="LOCAL-00006" summary="Package web was deleted. All files from there were moved to by/tms">
+    <task id="LOCAL-00006" summary="Interface Dao - common interface for all Dao">
       <option name="closed" value="true" />
-      <created>1700600203822</created>
+      <created>1700728272529</created>
       <option name="number" value="00006" />
       <option name="presentableId" value="LOCAL-00006" />
       <option name="project" value="LOCAL" />
-      <updated>1700600203822</updated>
+      <updated>1700728272529</updated>
     </task>
     <task id="LOCAL-00007" summary="Class HibernateConfiguration was created">
       <option name="closed" value="true" />
@@ -159,16 +145,29 @@
       <option name="project" value="LOCAL" />
       <updated>1700685234897</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Review Entity and ShoppingCart Entity were created" />
     <MESSAGE value="Bugs with pull request were fixed" />
     <MESSAGE value="Save Unversioned files" />
+    <MESSAGE value="Some packages were moved" />
+    <MESSAGE value="Interface Dao - common interface for all Dao" />
     <MESSAGE value="Package web was deleted. All files from there were moved to by/tms" />
     <MESSAGE value="Class HibernateConfiguration was created" />
     <MESSAGE value="workspace.xml" />
