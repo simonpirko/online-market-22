@@ -1,3 +1,4 @@
+import by.tms.configuration.SpringConfiguration;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 /**
