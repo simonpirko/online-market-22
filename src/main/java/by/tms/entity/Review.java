@@ -25,9 +25,9 @@ public class Review {
     private User user;
 
 
-    @OneToOne
-    @JoinColumn(name = "shop_order_id", referencedColumnName = "id")
-    private ShopOrder shopOrder;
+//    @OneToOne
+//    @JoinColumn(name = "shop_order_id", referencedColumnName = "id")
+//    private ShopOrder shopOrder;
 
 
     @ManyToOne

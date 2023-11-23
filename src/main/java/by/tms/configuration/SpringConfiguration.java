@@ -1,3 +1,5 @@
+package by.tms.configuration;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -18,6 +20,11 @@ public class SpringConfiguration {
 
 	@Bean
 	public ViewResolver viewResolver() {
-		return new InternalResourceViewResolver("/pages/", ".jsp");
+		InternalResourceViewResolver internalResourceViewResolver = new InternalResourceViewResolver();
+		internalResourceViewResolver.setPrefix("/pages/");
+		internalResourceViewResolver.setSuffix(".jsp");
+		return internalResourceViewResolver;
 	}
+
+
 }
