@@ -5,6 +5,7 @@ package by.tms.entity;
 */
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.util.List;
 
 @Entity
@@ -21,6 +22,9 @@ public class Product {
 
     @OneToMany
     private List<Variation> variations;
+
+    @Column(name = "price", nullable = false)
+    private BigDecimal price;
 
     @Column(name = "name", nullable = false, unique = true)
     private String name;
