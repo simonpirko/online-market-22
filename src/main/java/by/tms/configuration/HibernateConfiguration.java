@@ -62,6 +62,7 @@ public class HibernateConfiguration {
         hibernateProperties.setProperty("hibernate.hbm2ddl.auto", "create-drop");
         hibernateProperties.setProperty("hibernate.dialect", "org.hibernate.dialect.PostgreSQL82Dialect");
         hibernateProperties.setProperty("hibernate.dialect.show_sql", "true");
+        hibernateProperties.setProperty("hibernate.format_sql", "true");
 
         return  hibernateProperties;
 

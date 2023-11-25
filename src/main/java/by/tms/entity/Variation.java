@@ -9,11 +9,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "tb_variation")
-public class Variation {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class Variation extends AbstractEntity{
 
     @Column(name = "name", nullable = false, unique = true)
     private String name;

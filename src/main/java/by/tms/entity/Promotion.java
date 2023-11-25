@@ -5,11 +5,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "tb_promotion")
-public class Promotion {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class Promotion extends AbstractEntity{
 
     @Column(name = "name", nullable = false)
     private String name;

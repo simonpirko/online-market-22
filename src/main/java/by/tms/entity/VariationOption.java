@@ -8,11 +8,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "tb_variation_option")
-public class VariationOption {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class VariationOption extends AbstractEntity{
 
     @Column(name = "value", unique = true, nullable = false)
     private String value;
