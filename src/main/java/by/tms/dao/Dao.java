@@ -9,8 +9,6 @@ public interface Dao<T, ID> {
     Optional<T> findById(ID id);
     List<T> findAll();
     void remove(T entity);
-
-    //?????????????????????
     void removeById(ID id);
     void update(T entity);
 }
