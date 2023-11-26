@@ -33,7 +33,7 @@ public class HibernateConfiguration {
 
 
     @Bean
-    public DataSource dataSource(){
+    public DataSource dataSource() {
         BasicDataSource basicDataSource = new BasicDataSource();
         basicDataSource.setDriverClassName(driver);
         basicDataSource.setUrl(url);
@@ -45,18 +45,18 @@ public class HibernateConfiguration {
 
 
     @Bean
-    public LocalSessionFactoryBean sessionFactoryBean(){
+    public LocalSessionFactoryBean sessionFactoryBean() {
         LocalSessionFactoryBean sessionFactoryBean = new LocalSessionFactoryBean();
         sessionFactoryBean.setDataSource(dataSource());
         sessionFactoryBean.setPackagesToScan("by.tms.entity");
         sessionFactoryBean.setHibernateProperties(hibernateProperties());
 
-        return  sessionFactoryBean;
+        return sessionFactoryBean;
     }
 
 
     @Bean
-    public PlatformTransactionManager platformTransactionManager(){
+    public PlatformTransactionManager platformTransactionManager() {
         HibernateTransactionManager transactionManager = new HibernateTransactionManager();
         transactionManager.setSessionFactory(sessionFactoryBean().getObject());
 
@@ -65,7 +65,7 @@ public class HibernateConfiguration {
 
 
     @Bean
-    public Properties hibernateProperties(){
+    public Properties hibernateProperties() {
         Properties hibernateProperties = new Properties();
         hibernateProperties.setProperty("hibernate.hbm2ddl.auto", "create-drop");
         hibernateProperties.setProperty("hibernate.dialect", "org.hibernate.dialect.PostgreSQL82Dialect");
@@ -73,7 +73,7 @@ public class HibernateConfiguration {
         hibernateProperties.setProperty("hibernate.format_sql", "true");
         hibernateProperties.setProperty("hibernate.hbm2ddl.import_files", "data.sql");
 
-        return  hibernateProperties;
+        return hibernateProperties;
 
     }
 
