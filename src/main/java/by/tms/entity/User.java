@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import javax.management.relation.Role;
 import javax.persistence.*;
 import java.util.List;
 
@@ -22,6 +23,9 @@ public  class User {
     private String email_address;
     private String phone_number;
     private String password;
+
+    @Enumerated(EnumType.STRING)
+    private Role role;
 
 
     @OneToMany
