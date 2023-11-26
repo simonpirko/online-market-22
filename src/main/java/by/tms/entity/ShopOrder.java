@@ -12,6 +12,6 @@ import javax.persistence.Table;
 @Builder
 @ToString
 @NoArgsConstructor
-@AllArgsConstructor
+//@AllArgsConstructor
 public class ShopOrder extends AbstractEntity{
 }
