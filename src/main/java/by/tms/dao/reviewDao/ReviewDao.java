@@ -1,14 +1,12 @@
 package by.tms.dao.reviewDao;
 
 import by.tms.dao.Dao;
-import by.tms.dao.ShopDao.ShopDao;
 import by.tms.entity.Review;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
