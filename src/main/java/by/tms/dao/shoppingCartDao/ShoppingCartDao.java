@@ -2,6 +2,7 @@ package by.tms.dao.shoppingCartDao;
 
 import by.tms.dao.Dao;
 import by.tms.entity.ShoppingCart;
+import by.tms.entity.User;
 import org.hibernate.SessionFactory;
 import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
@@ -33,7 +34,7 @@ public class ShoppingCartDao implements Dao<ShoppingCart, Long> {
     }
 
     @Override
-    public Optional<ShoppingCart> findById(Long id) {       //?????????????????????????
+    public Optional<ShoppingCart> findById(Long id) {
         Session session = sessionFactory.openSession();
         ShoppingCart shoppingCart = session.get(ShoppingCart.class, id);
         session.close();
@@ -82,5 +83,6 @@ public class ShoppingCartDao implements Dao<ShoppingCart, Long> {
         session.update(shoppingCart);
         session.close();
     }
+
 }
 
