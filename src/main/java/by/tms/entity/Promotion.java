@@ -1,7 +1,12 @@
 package by.tms.entity;
 
+import lombok.*;
+
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDate;
+
+@Getter @Setter @ToString
+@NoArgsConstructor @AllArgsConstructor
 
 @Entity
 @Table(name = "tb_promotion")
@@ -20,9 +25,9 @@ public class Promotion {
     @Column(name = "discount_rate", nullable = false)
     private int discountRate;
 
-    @Column(name = "start date")
-    private Date startDate;
+    @Column(name = "start_date")
+    private LocalDate startDate;
 
     @Column(name = "end_date")
-    private Date endDate;
+    private LocalDate endDate;
 }
