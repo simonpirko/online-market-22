@@ -23,8 +23,13 @@ public  class User {
     private String phone_number;
     private String password;
 
+    @Enumerated(EnumType.STRING)
+    private Role role;
 
 
+    @OneToMany
+    @JoinColumn(name = "user_id",referencedColumnName = "id")
+    public List<Shop> ownedShop;
 
 
 }
