@@ -11,7 +11,7 @@ import java.util.Optional;
 
 public class ShopDao implements Dao<Shop, Long> {
 
-    private final static String FIND_ALL = "SELECT FROM tb_shop s";
+    private final static String FIND_ALL = "SELECT s FROM tb_shop s";
     private final static String DELETE_BY_ID = "DELETE FROM tb_shop s WHERE s.id = :id";
     private final static String FIND_BY_USER_ID = "SELECT FROM tb_shop s WHERE s.user_id = :user_id";
     private final SessionFactory sessionFactory;
@@ -84,7 +84,7 @@ public class ShopDao implements Dao<Shop, Long> {
         Session session = sessionFactory.openSession();
         session
                 .createQuery(FIND_BY_USER_ID, Shop.class)
-                .setParameter("userId", id)
+                .setParameter("user_id", id)
                 .getResultList();
         session.close();
 

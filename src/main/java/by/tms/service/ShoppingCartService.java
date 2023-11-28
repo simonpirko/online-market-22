@@ -44,7 +44,6 @@ public class ShoppingCartService {
     }
 
 
-    @Transactional(readOnly = true)
     public void update(ShoppingCart shoppingCart) {
         shoppingCartDao.update(shoppingCart);
     }

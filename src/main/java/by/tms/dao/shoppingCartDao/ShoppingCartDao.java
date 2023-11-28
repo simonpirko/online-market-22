@@ -15,7 +15,7 @@ import java.util.Optional;
 @Repository
 @Transactional
 public class ShoppingCartDao implements Dao<ShoppingCart, Long> {
-    private final static String FIND_ALL = "SELECT FROM tb_shopping_cart shc";
+    private final static String FIND_ALL = "SELECT shc FROM tb_shopping_cart shc";
     private final static String DELETE_BY_ID = "DELETE FROM tb_shopping_cart shc WHERE shc.id = :id";
 
     private final SessionFactory sessionFactory;
