@@ -1,8 +1,7 @@
 package by.tms.service;
 
-import by.tms.dao.ShopDao.ShopDao;
+
 import by.tms.dao.shopOrderDao.ShopOrderDao;
-import by.tms.entity.Shop;
 import by.tms.entity.ShopOrder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
