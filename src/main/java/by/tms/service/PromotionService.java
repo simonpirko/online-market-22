@@ -1,6 +1,6 @@
 package by.tms.service;
 
-import by.tms.dao.promotionDao.HibernatePromotionDao;
+import by.tms.dao.promotionDao.PromotionDao;
 import by.tms.entity.Promotion;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,14 +13,14 @@ import java.util.Optional;
 public class PromotionService {
 
     @Autowired
-    HibernatePromotionDao promotionDao;
+    PromotionDao promotionDao;
 
     public void savePromotion(Promotion promotion){
         promotionDao.save(promotion);
     }
 
     public Optional<Promotion> findPromotionById(Long id){
-        return  promotionDao.findById(id, Promotion.class);
+        return  promotionDao.findById(id);
     }
 
     public void updatePromotion(Promotion promotion){
