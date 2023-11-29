@@ -37,16 +37,13 @@ public class PromotionDao implements Dao<Promotion, Long> {
 
     @Override
     public void remove(Promotion promotion) {
-
     }
 
     @Override
     public void removeById(Long id) {
-
     }
 
     @Override
     public void update(Promotion promotion) {
-
     }
 }
