@@ -4,7 +4,7 @@ target/
 !**/src/test/**/target/
 
 ### IntelliJ IDEA ###
-.idea/
+*.idea/
 .idea/modules.xml
 .idea/artifacts/
 .idea/jarRepositories.xml
@@ -13,7 +13,7 @@ target/
 *.iws
 *.iml
 *.ipr
-*.xml
+
 
 
 ### Eclipse ###

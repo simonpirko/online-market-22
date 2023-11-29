@@ -12,10 +12,7 @@ import java.util.List;
 @Getter
 @Setter
 @ToString
-public class Shop {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Long id;
+public class Shop extends AbstractEntity{
 
     public String name;
     public String shop_address_id;

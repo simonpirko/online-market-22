@@ -1,9 +1,11 @@
 package by.tms.configuration;
 
 import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.PlatformTransactionManager;
@@ -16,39 +18,45 @@ import java.util.Properties;
 @Configuration
 @ComponentScan
 @EnableWebMvc
+@PropertySource("classpath:datasource.properties")
 @EnableTransactionManagement
 public class HibernateConfiguration {
-    private static final String URL = "jdbc:postgresql://localhost:5432/ozon";
-    private static final String USERNAME = "postgres";
-    private static final String PASSWORD = "root";
-    private static final String DRIVER = "org.postgresql.Driver";
+
+    @Value("${datasource.driver}")
+    private String driver;
+    @Value("${datasource.url}")
+    private String url;
+    @Value("${datasource.username}")
+    private String username;
+    @Value("${datasource.password}")
+    private String password;
 
 
     @Bean
-    public DataSource dataSource(){
+    public DataSource dataSource() {
         BasicDataSource basicDataSource = new BasicDataSource();
-        basicDataSource.setUrl(URL);
-        basicDataSource.setUsername(USERNAME);
-        basicDataSource.setPassword(PASSWORD);
-        basicDataSource.setDriverClassName(DRIVER);
+        basicDataSource.setDriverClassName(driver);
+        basicDataSource.setUrl(url);
+        basicDataSource.setUsername(username);
+        basicDataSource.setPassword(password);
 
         return basicDataSource;
     }
 
 
     @Bean
-    public LocalSessionFactoryBean sessionFactoryBean(){
+    public LocalSessionFactoryBean sessionFactoryBean() {
         LocalSessionFactoryBean sessionFactoryBean = new LocalSessionFactoryBean();
         sessionFactoryBean.setDataSource(dataSource());
         sessionFactoryBean.setPackagesToScan("by.tms.entity");
         sessionFactoryBean.setHibernateProperties(hibernateProperties());
 
-        return  sessionFactoryBean;
+        return sessionFactoryBean;
     }
 
 
     @Bean
-    public PlatformTransactionManager platformTransactionManager(){
+    public PlatformTransactionManager platformTransactionManager() {
         HibernateTransactionManager transactionManager = new HibernateTransactionManager();
         transactionManager.setSessionFactory(sessionFactoryBean().getObject());
 
@@ -57,13 +65,15 @@ public class HibernateConfiguration {
 
 
     @Bean
-    public Properties hibernateProperties(){
+    public Properties hibernateProperties() {
         Properties hibernateProperties = new Properties();
         hibernateProperties.setProperty("hibernate.hbm2ddl.auto", "create-drop");
         hibernateProperties.setProperty("hibernate.dialect", "org.hibernate.dialect.PostgreSQL82Dialect");
         hibernateProperties.setProperty("hibernate.dialect.show_sql", "true");
+        hibernateProperties.setProperty("hibernate.format_sql", "true");
+        hibernateProperties.setProperty("hibernate.hbm2ddl.import_files", "data.sql");
 
-        return  hibernateProperties;
+        return hibernateProperties;
 
     }
 
