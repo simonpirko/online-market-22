@@ -15,8 +15,8 @@ import java.util.Optional;
 @Repository
 @Transactional
 public class PromotionDao implements Dao<Promotion, Long> {
-    private final static String FIND_ALL = "SELECT pro FROM tb_promotion pro";
-    private final static String DELETE_BY_ID = "DELETE FROM tb_promotion pro WHERE pro.id = :id";
+    private final static String FIND_ALL = "FROM Promotion";
+    private final static String DELETE_BY_ID = "DELETE FROM Promotion p WHERE p.id = :id";
 
     private final SessionFactory sessionFactory;
 
