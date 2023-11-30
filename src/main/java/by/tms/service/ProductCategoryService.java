@@ -4,7 +4,7 @@ package by.tms.service;
     @author Ilya Moiseenko on 28.11.23
 */
 
-import by.tms.dao.productCategoryDao.HibernateProductCategoryDao;
+import by.tms.dao.productCategoryDao.ProductCategoryDao;
 import by.tms.entity.ProductCategory;
 import by.tms.exception.NotFoundException;
 import lombok.RequiredArgsConstructor;
@@ -16,7 +16,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class ProductCategoryService {
 
-    private final HibernateProductCategoryDao productCategoryDao;
+    private final ProductCategoryDao productCategoryDao;
 
     private final String NOT_FOUND_MESSAGE = "Category not found";
 
@@ -25,7 +25,7 @@ public class ProductCategoryService {
     }
 
     public ProductCategory findById(Long id) {
-        Optional<ProductCategory> productCategoryById = productCategoryDao.findById(id, ProductCategory.class);
+        Optional<ProductCategory> productCategoryById = productCategoryDao.findById(id);
         if (productCategoryById.isPresent())
             return productCategoryById.get();
 
