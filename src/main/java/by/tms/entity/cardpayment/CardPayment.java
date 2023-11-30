@@ -7,6 +7,7 @@ import lombok.ToString;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -24,7 +25,8 @@ public class CardPayment extends AbstractEntity {
     private PaymentMethod paymentMethod;
 
     @Enumerated(EnumType.STRING)
-    private CardType cardType;
+    @ElementCollection(fetch = FetchType.EAGER)
+    private Set<CardType> cardType;
 
     @Column(name = "provider")
     private String provider;
