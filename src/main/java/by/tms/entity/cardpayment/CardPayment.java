@@ -12,10 +12,13 @@ import javax.persistence.*;
 @Entity
 public class CardPayment extends AbstractEntity{
 
-    @Column(name = "user_id")
     @OneToMany
-    @JoinColumn(name = "id", referencedColumnName = "card_id")
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
+
+    @OneToMany
+    @JoinColumn(name = "card_payment_id", referencedColumnName = "payment_method_id")
+    private PaymentMethod paymentMethod;
 
     @Enumerated(EnumType.STRING)
     private CardType cardType;
