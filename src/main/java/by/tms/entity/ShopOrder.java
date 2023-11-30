@@ -16,10 +16,6 @@ import java.time.LocalDate;
 @AllArgsConstructor
 public class ShopOrder extends AbstractEntity{
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
     private Long shop_id;
     private Long shopping_cart_id;
     private LocalDate order_date;
