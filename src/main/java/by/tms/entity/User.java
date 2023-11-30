@@ -16,8 +16,8 @@ import java.util.List;
 @Entity
 public  class User extends AbstractEntity{
 
-    private String email_address;
-    private String phone_number;
+    private String emailAddress;
+    private String phoneNumber;
     private String password;
 
     @Enumerated(EnumType.STRING)
