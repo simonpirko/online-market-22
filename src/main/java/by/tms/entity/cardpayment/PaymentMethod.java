@@ -1,5 +1,7 @@
 package by.tms.entity.cardpayment;
 
+import by.tms.entity.AbstractEntity;
+import by.tms.entity.Shop;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;

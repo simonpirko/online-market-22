@@ -1,6 +1,7 @@
 package by.tms.dao.paymentCardDao;
 
 import by.tms.dao.Dao;
+import by.tms.entity.cardpayment.CardPayment;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
@@ -11,7 +12,7 @@ import java.util.Optional;
 
 @Repository
 @Transactional
-public class PaymentCardDao extends Dao<CardPayment, Long> {
+public class PaymentCardDao implements Dao<CardPayment, Long> {
     private final static String FIND_ALL = "FROM CardPayment";
     private final static String DELETE_BY_ID = "DELETE FROM CardPayment cp WHERE cp.id = :id";
 
@@ -60,7 +61,7 @@ public class PaymentCardDao extends Dao<CardPayment, Long> {
 
         Session session = sessionFactory.openSession();
         session
-                .createQuery(DELETE_BY_ID. CardPayment.class)
+                .createQuery(DELETE_BY_ID, CardPayment.class)
                 .setParameter("id", id)
                 .executeUpdate();
         session.close();
