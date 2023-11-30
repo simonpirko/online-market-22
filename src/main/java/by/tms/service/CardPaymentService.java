@@ -1,6 +1,7 @@
 package by.tms.service;
 
 import by.tms.dao.paymentCardDao.PaymentCardDao;
+import by.tms.entity.cardpayment.CardPayment;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import java.util.List;

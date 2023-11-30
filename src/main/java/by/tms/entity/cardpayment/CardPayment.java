@@ -1,28 +1,32 @@
 package by.tms.entity.cardpayment;
+import by.tms.entity.AbstractEntity;
+import by.tms.entity.User;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Set;
 
 @Getter
 @Setter
 @ToString
 @Table(name = "tb_card_payment")
 @Entity
-public class CardPayment extends AbstractEntity{
+public class CardPayment extends AbstractEntity {
 
-    @OneToMany
+    @ManyToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
 
-    @OneToMany
+    @ManyToOne
     @JoinColumn(name = "card_payment_id", referencedColumnName = "payment_method_id")
     private PaymentMethod paymentMethod;
 
     @Enumerated(EnumType.STRING)
-    private CardType cardType;
+    @ElementCollection(fetch = FetchType.EAGER)
+    private Set<CardType> cardType;
 
     @Column(name = "provider")
     private String provider;
