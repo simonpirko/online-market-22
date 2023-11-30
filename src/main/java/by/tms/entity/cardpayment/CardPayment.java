@@ -13,11 +13,7 @@ import javax.persistence.*;
 @ToString
 @Table(name = "tb_card_payment")
 @Entity
-public class CardPayment {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "card_id")
-    private Long id;
+public class CardPayment extends AbstractEntity{
 
     @Column(name = "user_id")
     @OneToMany
