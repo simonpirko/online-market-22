@@ -12,8 +12,8 @@ import java.util.Optional;
 @Repository
 @Transactional
 public class PaymentCardDao extends Dao<CardPayment, Long> {
-    private final static String FIND_ALL = "SELECT cp FROM tb_card_payment cp";
-    private final static String DELETE_BY_ID = "DELETE FROM tb_card_payment cp WHERE cp.id = :id";
+    private final static String FIND_ALL = "FROM CardPayment";
+    private final static String DELETE_BY_ID = "DELETE FROM CardPayment cp WHERE cp.id = :id";
 
     private final SessionFactory sessionFactory;
 
