@@ -1,5 +1,5 @@
 
-package by.tms.dao;
+package by.tms.dao.userDao;
 
 import by.tms.entity.User;
 import org.hibernate.Session;
