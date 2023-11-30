@@ -1,8 +1,10 @@
 package by.tms.entity.cardpayment;
 
+import jdk.jfr.Enabled;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.springframework.scheduling.annotation.EnableAsync;
 
 import javax.persistence.*;
 
@@ -22,11 +24,8 @@ public class CardPayment {
     @JoinColumn(name = "id", referencedColumnName = "card_id")
     private User user;
 
-    @ToString.Exclude
-    @Column(name = "payment_card_type_id")
-    @ManyToOne
-    @JoinColumn(name = "card_type_id", referencedColumnName = "card_id")
-    private PaymentCardType paymentCardType;
+    @Enumerated(EnumType.STRING)
+    private CardType cardType;
 
     @Column(name = "provider")
     private String provider;
