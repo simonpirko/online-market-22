@@ -1,10 +1,7 @@
 package by.tms.entity.cardpayment;
-
-import jdk.jfr.Enabled;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-import org.springframework.scheduling.annotation.EnableAsync;
 
 import javax.persistence.*;
 
