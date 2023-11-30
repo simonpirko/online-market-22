@@ -4,6 +4,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -30,7 +31,7 @@ public class CardPayment extends AbstractEntity{
     private String accountNumber;
 
     @Column(name = "expire_date")
-    private String expireDate;
+    private LocalDate expireDate;
 
     @Column(name = "is_default")
     private boolean isDefault;
