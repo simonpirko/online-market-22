@@ -5,22 +5,21 @@ package by.tms.entity;
 */
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.util.List;
 
 @Entity
 @Table(name = "tb_product")
-public class Product {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
+public class Product extends AbstractEntity{
     @ManyToOne
     @JoinColumn(name = "product_category_id", referencedColumnName = "id")
     private ProductCategory category;
 
     @OneToMany
     private List<Variation> variations;
+
+    @Column(name = "price", nullable = false)
+    private BigDecimal price;
 
     @Column(name = "name", nullable = false, unique = true)
     private String name;

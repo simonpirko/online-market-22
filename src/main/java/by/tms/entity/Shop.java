@@ -12,16 +12,17 @@ import java.util.List;
 @Getter
 @Setter
 @ToString
-public class Shop {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Long id;
+public class Shop extends AbstractEntity{
 
+   @Column(name = "name")
     public String name;
-    public String shop_address_id;
-    public String product_configuration_id;
-    public String shipping_methods_id;
-    public String user_owner;
+
+   @OneToMany
+   @JoinColumn()
+    public String shopAddressId;
+    public String productConfigurationId;
+    public String shippingMethodsId;
+    public String userOwner;
 
     @ManyToOne
     @JoinColumn(name="shop_id",referencedColumnName = "user_id")

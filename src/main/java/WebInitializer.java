@@ -1,3 +1,4 @@
+import by.tms.configuration.HibernateConfiguration;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 /**
@@ -11,7 +12,7 @@ public class WebInitializer extends AbstractAnnotationConfigDispatcherServletIni
 
 	@Override
 	protected Class<?>[] getServletConfigClasses() {
-		return new Class[]{SpringConfiguration.class};
+		return new Class[]{HibernateConfiguration.class};
 	}
 
 	@Override
