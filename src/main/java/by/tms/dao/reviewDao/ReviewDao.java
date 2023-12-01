@@ -13,11 +13,11 @@ import java.util.Optional;
 @Repository
 @Transactional
 public class ReviewDao implements Dao<Review, Long> {
-    private final static String FIND_ALL = "SELECT ur FROM tb_user_review ur";
-    private final static String DELETE_BY_ID = "DELETE FROM tb_user_review ur WHERE ur.id = :id";
-    private final static String FIND_BY_USER_ID = "SELECT ur FROM tb_user_review ur WHERE ur.user_id = :user_id";
-    private final static String FIND_BY_SHOP_ID = "SELECT ur FROM tb_user_review ur WHERE ur.shop_id = :shop_id";
-    private final static String FIND_BY_SHOP_ORDER_ID = "SELECT ur FROM tb_user_review ur WHERE ur.shop_order_id = :shop_order_id";
+    private final static String FIND_ALL = "FROM Review";
+    private final static String DELETE_BY_ID = "DELETE FROM Review r WHERE r.id = :id";
+    private final static String FIND_BY_USER_ID = "SELECT r FROM Review r WHERE r.user_id = :user_id";
+    private final static String FIND_BY_SHOP_ID = "SELECT r FROM Review r WHERE r.shop_id = :shop_id";
+    private final static String FIND_BY_SHOP_ORDER_ID = "SELECT r FROM Review r WHERE r.shop_order_id = :shop_order_id";
     private final SessionFactory sessionFactory;
 
     public ReviewDao(SessionFactory sessionFactory) {

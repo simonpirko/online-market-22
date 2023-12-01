@@ -5,15 +5,20 @@ import by.tms.entity.Shop;
 import by.tms.entity.ShopOrder;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+
+@Repository
+@Transactional
 public class ShopOrderDao implements Dao<ShopOrder, Long> {
 
-    private final static String FIND_ALL = "SELECT s FROM tb_shop_order s";
-    private final static String DELETE_BY_ID = "DELETE FROM tb_shop_order s WHERE s.id = :id";
+    private final static String FIND_ALL = "FROM ShopOrder";
+    private final static String DELETE_BY_ID = "DELETE FROM ShopOrder s WHERE s.id = :id";
     private final SessionFactory sessionFactory;
 
     public ShopOrderDao(SessionFactory sessionFactory) {
