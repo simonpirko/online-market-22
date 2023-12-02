@@ -1,5 +1,12 @@
 package by.tms.entity;
 
-public enum Role {
-    ADMIN,CLIENT
+import org.springframework.security.core.GrantedAuthority;
+
+public enum Role implements GrantedAuthority {
+    ADMIN,CLIENT;
+
+    @Override
+    public String getAuthority() {
+        return this.name();
+    }
 }

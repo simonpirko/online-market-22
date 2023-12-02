@@ -82,6 +82,17 @@ public class UserDao implements Dao<User, Long> {
         session.close();
     }
 
+    public Optional<User> findByEmailAddress(String emailAddress){
+        Session session = sessionFactory.openSession();
+        User user = session.get(User.class, emailAddress);
+        session.close();
+
+        if (user != null) {
+            return Optional.of(user);
+        } else {
+            return Optional.empty();
+        }
+    }
 
 }
 

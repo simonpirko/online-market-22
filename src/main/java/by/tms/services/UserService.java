@@ -1,8 +1,12 @@
 package by.tms.services;
 
+import by.tms.configuration.principalEntity.UserPrincipal;
 import by.tms.dao.userDao.UserDao;
 import by.tms.entity.User;
 
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -13,7 +17,7 @@ import java.util.Optional;
 
 @Service
 @Transactional
-public class UserService {
+public class UserService implements UserDetailsService {
     private final UserDao userDao;
 
     public UserService(UserDao userDao) {
@@ -57,6 +61,15 @@ public class UserService {
         userDao.update(user);
     }
 
+    @Override
+    public UserDetails loadUserByUsername(String emailAddress) throws UsernameNotFoundException {
+        User user = userDao.findByEmailAddress(emailAddress).orElseThrow();
+        return UserPrincipal.builder()
+                .emailAddress(user.getEmailAddress())
+                .password(user.getPassword())
+                .role(user.getRole())
+                .build();
+    }
 }
 
 
