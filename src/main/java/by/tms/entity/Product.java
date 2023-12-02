@@ -10,12 +10,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "tb_product")
-public class Product {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
+public class Product extends AbstractEntity{
     @ManyToOne
     @JoinColumn(name = "product_category_id", referencedColumnName = "id")
     private ProductCategory category;

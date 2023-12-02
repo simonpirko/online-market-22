@@ -10,11 +10,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "tb_product_category")
-public class ProductCategory {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class ProductCategory extends AbstractEntity{
 
     @Column(name = "category_name", unique = true, nullable = false)
     private String categoryName;

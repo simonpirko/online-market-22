@@ -12,22 +12,16 @@ import javax.persistence.*;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class Review {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
-    private Long id;
-
+public class Review extends AbstractEntity{
 
     @ManyToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
 
 
-//    @OneToOne
-//    @JoinColumn(name = "shop_order_id", referencedColumnName = "id")
-//    private ShopOrder shopOrder;
+    @OneToOne
+    @JoinColumn(name = "shop_order_id", referencedColumnName = "id")
+    private ShopOrder shopOrder;
 
 
     @ManyToOne
