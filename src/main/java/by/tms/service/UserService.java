@@ -1,4 +1,4 @@
-package by.tms.services;
+package by.tms.service;
 
 import by.tms.dao.userDao.UserDao;
 import by.tms.entity.User;
