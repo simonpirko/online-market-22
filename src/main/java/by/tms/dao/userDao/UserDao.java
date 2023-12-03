@@ -2,6 +2,7 @@
 package by.tms.dao.userDao;
 
 import by.tms.dao.Dao;
+import by.tms.entity.Role;
 import by.tms.entity.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Repository;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 import javax.transaction.Transactional;
 
@@ -80,6 +82,15 @@ public class UserDao implements Dao<User, Long> {
         Session session = sessionFactory.openSession();
         session.update(user);
         session.close();
+    }
+
+//????????????????????????????????????????????????????????????????
+    public void assignRoleToUser(User user, Role role){
+        roles = new ArrayList<>();
+        Session session = sessionFactory.openSession();
+        role.
+        roles.forEach(user :: addRole);
+        session.merge(user);
     }
 
 

@@ -1,6 +1,7 @@
 package by.tms.service;
 
 import by.tms.dao.userDao.UserDao;
+import by.tms.entity.Role;
 import by.tms.entity.User;
 
 import org.springframework.stereotype.Service;
@@ -9,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
+import java.util.Set;
 
 
 @Service
@@ -57,6 +59,17 @@ public class UserService {
         userDao.update(user);
     }
 
+
+    @Transactional(readOnly = true)
+    public Optional<User> findByPhone(String phoneNumber) {
+        return userDao.findByPhone(phoneNumber);
+    }
+
+
+    @Transactional(readOnly = true)
+    public void assignRoleToUser(User user, List<Role> roles){
+        userDao.assignRoleToUser(user, roles);
+    }
 }
 
 
