@@ -19,10 +19,6 @@ public class LoginUserDto {
 
     @NotEmpty
     @NotBlank
-    private String emailAddress;
-
-    @NotEmpty
-    @NotBlank
     private String phoneNumber;
 
     @NotEmpty
