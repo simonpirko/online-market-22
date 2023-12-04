@@ -4,15 +4,10 @@ import by.tms.dto.CatalogProductDto;
 import by.tms.dto.LoginUserDto;
 import by.tms.dto.ProductConfigurationDto;
 import by.tms.dto.RegistrationUserDto;
-import by.tms.entity.product.Product;
-import by.tms.entity.Promotion;
 import by.tms.entity.User;
 import by.tms.entity.product.ProductConfiguration;
-import by.tms.entity.product.VariationOption;
 import org.springframework.stereotype.Component;
 
-import java.math.BigDecimal;
-import java.util.List;
 import java.util.Optional;
 
 @Component
@@ -47,36 +42,36 @@ public class MainMapper implements MapStructMapper{
     }
 
     @Override
-    public Optional<ProductConfigurationDto> productToProductConfigurationDto(Product product) {
-        if(product == null) {
+    public Optional<ProductConfigurationDto> productToProductConfigurationDto(ProductConfiguration productConfiguration) {
+        if(productConfiguration == null) {
             return Optional.empty();
         }
 
         ProductConfigurationDto productConfigurationDto = new ProductConfigurationDto();
 
-        productConfigurationDto.setName(product.getName());
-        productConfigurationDto.setPrice(product.getPrice());
-        productConfigurationDto.setPromotion(product.);
-        productConfigurationDto.setImage(product.getImage());
-        productConfigurationDto.setPartNumber(product.getPartNumber());
-        productConfigurationDto.setDescription(product.getDescription());
-        productConfigurationDto.setVariationOptions(product.);
+        productConfigurationDto.setName(productConfiguration.getProduct().getName());
+        productConfigurationDto.setPrice(productConfiguration.getProduct().getPrice());
+        productConfigurationDto.setPromotion(productConfiguration.getPromotion());
+        productConfigurationDto.setImage(productConfiguration.getProduct().getImage());
+        productConfigurationDto.setPartNumber(productConfiguration.getProduct().getPartNumber());
+        productConfigurationDto.setDescription(productConfiguration.getProduct().getDescription());
+        productConfigurationDto.setVariationOptions(productConfiguration.getVariationOptions());
 
         return Optional.of(productConfigurationDto);
     }
 
     @Override
-    public Optional<CatalogProductDto> productToCatalogProduct(Product product) {
-        if(product == null){
+    public Optional<CatalogProductDto> productToCatalogProduct(ProductConfiguration productConfiguration) {
+        if(productConfiguration == null){
             return Optional.empty();
         }
 
         CatalogProductDto catalogProductDto = new CatalogProductDto();
 
-        catalogProductDto.setName(product.getName());
-        catalogProductDto.setPrice(product.getPrice());
-        catalogProductDto.setPromotion(product.);
-        catalogProductDto.setImage(product.getImage());
+        catalogProductDto.setName(productConfiguration.getProduct().getName());
+        catalogProductDto.setPrice(productConfiguration.getProduct().getPrice());
+        catalogProductDto.setPromotion(productConfiguration.getPromotion());
+        catalogProductDto.setImage(productConfiguration.getProduct().getImage());
 
         return Optional.of(catalogProductDto);
     }

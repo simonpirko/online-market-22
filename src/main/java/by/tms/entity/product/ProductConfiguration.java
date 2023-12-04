@@ -1,6 +1,7 @@
 package by.tms.entity.product;
 
 import by.tms.entity.AbstractEntity;
+import by.tms.entity.Promotion;
 import lombok.*;
 
 import javax.persistence.*;
@@ -17,10 +18,16 @@ import java.util.List;
 @AllArgsConstructor
 public class ProductConfiguration extends AbstractEntity {
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    private List<Product> products;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "product_id", referencedColumnName = "id")
+    private Product product;
 
     @ManyToMany(fetch = FetchType.EAGER)
+//    @JoinColumn(name = "variation_option_id", referencedColumnName = "id")
     private List<VariationOption> variationOptions;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "promotion_id", referencedColumnName = "id")
+    private Promotion promotion;
 
 }

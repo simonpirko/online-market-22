@@ -6,6 +6,7 @@ import by.tms.dto.ProductConfigurationDto;
 import by.tms.dto.RegistrationUserDto;
 import by.tms.entity.product.Product;
 import by.tms.entity.User;
+import by.tms.entity.product.ProductConfiguration;
 import org.mapstruct.*;
 
 import java.util.Optional;
@@ -17,8 +18,8 @@ public interface MapStructMapper {
 
     Optional<User> registrationUserDtoToUser(RegistrationUserDto registrationUserDto);
     Optional<LoginUserDto> userToLoginUserDto(User user);
-    Optional<ProductConfigurationDto> productToProductConfigurationDto(Product product);
-    Optional<CatalogProductDto> productToCatalogProduct(Product product);
+    Optional<ProductConfigurationDto> productToProductConfigurationDto(ProductConfiguration productConfiguration);
+    Optional<CatalogProductDto> productToCatalogProduct(ProductConfiguration productConfiguration);
 
 
 }

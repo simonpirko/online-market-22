@@ -5,7 +5,7 @@ package by.tms.dto;
 */
 
 import by.tms.entity.Promotion;
-import by.tms.entity.VariationOption;
+import by.tms.entity.product.VariationOption;
 import lombok.*;
 
 import java.math.BigDecimal;

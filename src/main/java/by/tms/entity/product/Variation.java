@@ -5,7 +5,7 @@ package by.tms.entity.product;
 */
 
 import by.tms.entity.AbstractEntity;
-import by.tms.entity.VariationOption;
+import by.tms.entity.product.VariationOption;
 import lombok.*;
 
 import javax.persistence.*;

@@ -67,8 +67,8 @@ public class UserService {
 
 
     @Transactional(readOnly = true)
-    public void assignRoleToUser(User user, List<Role> roles){
-        userDao.assignRoleToUser(user, roles);
+    public void assignRoleToUser(User user, Role role){
+        userDao.assignRoleToUser(user, role);
     }
 }
 

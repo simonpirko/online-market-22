@@ -20,7 +20,8 @@ import javax.transaction.Transactional;
 @Transactional
 public class UserDao implements Dao<User, Long> {
     private final static String FIND_ALL = "FROM User";
-    private final static String DELETE_BY_ID = "DELETE  FROM User u WHERE u.id =:id";
+    private final static String DELETE_BY_ID = "DELETE FROM User u WHERE u.id =:id";
+    private final static String FIND_BY_PHONE = "SELECT u FROM User u WHERE u.phone_number = :phone_number";
     private final SessionFactory sessionFactory;
 
     public UserDao(SessionFactory sessionFactory) {
@@ -84,15 +85,30 @@ public class UserDao implements Dao<User, Long> {
         session.close();
     }
 
-//????????????????????????????????????????????????????????????????
+
     public void assignRoleToUser(User user, Role role){
-        roles = new ArrayList<>();
         Session session = sessionFactory.openSession();
-        role.
-        roles.forEach(user :: addRole);
-        session.merge(user);
+        user.setRole(role);
+
+        session.update(user);
     }
 
+
+    public Optional<User> findByPhone(String phoneNumber) {
+        Session session = sessionFactory.openSession();
+        session
+                .createQuery(FIND_BY_PHONE, User.class)
+                .setParameter("phone_number", phoneNumber);
+
+        User user = session.get(User.class, phoneNumber);
+
+        session.close();
+        if (user != null) {
+            return Optional.of(user);
+        } else {
+            return Optional.empty();
+        }
+    }
 
 }
 

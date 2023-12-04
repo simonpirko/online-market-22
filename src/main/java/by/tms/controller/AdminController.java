@@ -1,15 +1,13 @@
 package by.tms.controller;
 
+import by.tms.entity.Role;
 import by.tms.entity.User;
 import by.tms.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
@@ -48,14 +46,15 @@ public class AdminController {
 
 
     @PostMapping("/role_management")
-    public String assignRoleToUser(@ModelAttribute(ATTRIBUTE_USER) User user, BindingResult bindingResult, Model model){
+    @ResponseBody
+    public String assignRoleToUser(@RequestParam(name = "role") Role role, @ModelAttribute(ATTRIBUTE_USER) User user, BindingResult bindingResult, Model model){
         model.addAttribute(ATTRIBUTE_ROLES, userService.findAll());
 
         Optional<User> userByPhone = userService.findByPhone(user.getPhoneNumber());
 
         if(!bindingResult.hasErrors()){
             if(userByPhone.isPresent()){
-                userService.assignRoleToUser(userByPhone.get(), user.getRole());       //????????????????????????????????????????
+                userService.assignRoleToUser(userByPhone.get(), role);
             }
             else {
                 bindingResult.addError(new ObjectError(USER_BY_PHONE_NOT_FOUND, "User with this phone number doesn't exist"));
