@@ -5,7 +5,7 @@ package by.tms.dao.variationDao;
 */
 
 import by.tms.dao.Dao;
-import by.tms.entity.Variation;
+import by.tms.entity.catalogProduct.Variation;
 import com.sun.xml.bind.v2.model.core.ID;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -5,7 +5,7 @@ package by.tms.dao.productCategoryDao;
 */
 
 import by.tms.dao.Dao;
-import by.tms.entity.ProductCategory;
+import by.tms.entity.catalogProduct.ProductCategory;
 import com.sun.xml.bind.v2.model.core.ID;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
