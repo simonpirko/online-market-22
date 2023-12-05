@@ -1,7 +1,7 @@
 package by.tms.entity;
 
 import by.tms.entity.address.Address;
-import by.tms.entity.product.Product;
+import by.tms.entity.catalogProduct.Product;
 import by.tms.entity.shopOrder.ShippingMethod;
 import lombok.Getter;
 import lombok.Setter;

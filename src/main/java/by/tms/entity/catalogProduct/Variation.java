@@ -1,11 +1,10 @@
-package by.tms.entity.product;
+package by.tms.entity.catalogProduct;
 
 /*
     @author Ilya Moiseenko on 19.11.23
 */
 
 import by.tms.entity.AbstractEntity;
-import by.tms.entity.product.VariationOption;
 import lombok.*;
 
 import javax.persistence.*;

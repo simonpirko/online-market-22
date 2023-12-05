@@ -1,15 +1,13 @@
-package by.tms.entity.product;
+package by.tms.entity.catalogProduct;
 
 /*
     @author Ilya Moiseenko on 19.11.23
 */
 
 import by.tms.entity.AbstractEntity;
-import by.tms.entity.product.Product;
 import lombok.*;
 
 import javax.persistence.*;
-import java.math.BigDecimal;
 import java.util.List;
 
 @Entity

@@ -5,7 +5,7 @@ import by.tms.dto.LoginUserDto;
 import by.tms.dto.ProductConfigurationDto;
 import by.tms.dto.RegistrationUserDto;
 import by.tms.entity.User;
-import by.tms.entity.product.ProductConfiguration;
+import by.tms.entity.catalogProduct.ProductConfiguration;
 import org.springframework.stereotype.Component;
 
 import java.util.Optional;

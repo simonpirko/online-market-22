@@ -1,4 +1,4 @@
-package by.tms.entity.product;
+package by.tms.entity.catalogProduct;
 
 /*
     @author Ilya Moiseenko on 19.11.23

@@ -1,11 +1,10 @@
-package by.tms.entity.product;
+package by.tms.entity.catalogProduct;
 
 import by.tms.entity.AbstractEntity;
 import by.tms.entity.Promotion;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
