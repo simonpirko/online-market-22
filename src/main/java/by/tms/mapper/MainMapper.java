@@ -12,13 +12,24 @@ import java.util.Optional;
 
 @Component
 public class MainMapper implements MapStructMapper{
+    private final User user;
+    private final LoginUserDto loginUserDto;
+    private final ProductConfigurationDto productConfigurationDto;
+    private final CatalogProductDto catalogProductDto;
+
+    public MainMapper(User user, LoginUserDto loginUserDto, ProductConfigurationDto productConfigurationDto, CatalogProductDto catalogProductDto) {
+        this.user = user;
+        this.loginUserDto = loginUserDto;
+        this.productConfigurationDto = productConfigurationDto;
+        this.catalogProductDto = catalogProductDto;
+    }
+
+
     @Override
     public Optional<User> registrationUserDtoToUser(RegistrationUserDto registrationUserDto) {
         if(registrationUserDto == null){
             return Optional.empty();
         }
-
-        User user = new User();
 
         user.setEmailAddress(registrationUserDto.getEmailAddress());
         user.setPhoneNumber(registrationUserDto.getPhoneNumber());
@@ -33,7 +44,7 @@ public class MainMapper implements MapStructMapper{
             return Optional.empty();
         }
 
-        LoginUserDto loginUserDto = new LoginUserDto();
+//        LoginUserDto loginUserDto = new LoginUserDto();
 
         loginUserDto.setPhoneNumber(user.getPhoneNumber());
         loginUserDto.setPassword(user.getPassword());
@@ -47,7 +58,7 @@ public class MainMapper implements MapStructMapper{
             return Optional.empty();
         }
 
-        ProductConfigurationDto productConfigurationDto = new ProductConfigurationDto();
+//        ProductConfigurationDto productConfigurationDto = new ProductConfigurationDto();
 
         productConfigurationDto.setName(productConfiguration.getProduct().getName());
         productConfigurationDto.setPrice(productConfiguration.getProduct().getPrice());
@@ -66,7 +77,7 @@ public class MainMapper implements MapStructMapper{
             return Optional.empty();
         }
 
-        CatalogProductDto catalogProductDto = new CatalogProductDto();
+//        CatalogProductDto catalogProductDto = new CatalogProductDto();
 
         catalogProductDto.setName(productConfiguration.getProduct().getName());
         catalogProductDto.setPrice(productConfiguration.getProduct().getPrice());
