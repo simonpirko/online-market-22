@@ -2,7 +2,7 @@ package by.tms.dao.shoppingCartDao;
 
 import by.tms.dao.Dao;
 import by.tms.entity.ShoppingCart;
-import by.tms.entity.User;
+import by.tms.entity.catalogProduct.ProductConfiguration;
 import org.hibernate.SessionFactory;
 import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
@@ -82,6 +82,20 @@ public class ShoppingCartDao implements Dao<ShoppingCart, Long> {
         Session session = sessionFactory.openSession();
         session.update(shoppingCart);
         session.close();
+    }
+
+
+    public boolean isEmpty(ShoppingCart shoppingCart) {
+        Session session = sessionFactory.openSession();
+        List<ProductConfiguration> productsInShoppingCart = session
+                                                            .get(ShoppingCart.class, shoppingCart.getId())
+                                                            .getProductsInShoppingCart();
+
+        if (!productsInShoppingCart.isEmpty()) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
 }

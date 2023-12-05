@@ -44,8 +44,8 @@ public class AdminController {
 
     @GetMapping("/role_management")
     public String getRoleManagement(@ModelAttribute(ATTRIBUTE_USER) User user, Model model) {
-
-        model.addAttribute(ATTRIBUTE_ROLES, userService.findAll());
+        Role[] rolesArray = Role.values();
+        model.addAttribute(ATTRIBUTE_ROLES, rolesArray);
         return ROLE_MANAGEMENT_PATH;
 
     }
@@ -54,8 +54,8 @@ public class AdminController {
     @PostMapping("/role_management")
     @ResponseBody
     public String assignRoleToUser(@RequestParam(name = "role") Role role, @ModelAttribute(ATTRIBUTE_USER) User user, BindingResult bindingResult, Model model) {
-        Role[] roleArray = Role.values();
-        model.addAttribute(ATTRIBUTE_ROLES, roleArray);
+        Role[] rolesArray = Role.values();
+        model.addAttribute(ATTRIBUTE_ROLES, rolesArray);
 
         Optional<User> userByPhone = userService.findByPhone(user.getPhoneNumber());
 
@@ -84,7 +84,7 @@ public class AdminController {
     }
 
 
-    @DeleteMapping("/delete_Shop/{id}")
+    @DeleteMapping("/delete_shop/{id}")
     public void deleteShop(@ModelAttribute(ATTRIBUTE_SHOP) Shop shop, @PathVariable("id") Long id, BindingResult bindingResult, Model model) {
         Optional<Shop> shopById = shopService.findById(id);
 

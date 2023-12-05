@@ -22,7 +22,6 @@ public class ProductConfiguration extends AbstractEntity {
     private Product product;
 
     @ManyToMany(fetch = FetchType.EAGER)
-//    @JoinColumn(name = "variation_option_id", referencedColumnName = "id")
     private List<VariationOption> variationOptions;
 
     @ManyToOne(fetch = FetchType.EAGER)

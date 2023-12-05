@@ -10,7 +10,7 @@ public class SingleShopUser extends User{
 
     @OneToMany
     @JoinColumn(name = "user_id",referencedColumnName = "id")
-    public List<Shop> ownedShop;
+    private List<Shop> ownedShop;
 
 
 }
