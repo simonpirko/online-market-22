@@ -14,7 +14,6 @@ import java.util.Collections;
 @Getter @Setter @Builder @ToString
 public class UserPrincipal implements UserDetails {
 
-    @Getter
     private String emailAddress;
     private String password;
     private Role role;

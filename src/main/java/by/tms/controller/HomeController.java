@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
+@RequestMapping("/")
 public class HomeController {
-
     private final static String HOME_PATH = "/home";
     private final static String USER_HOME_PATH = "/home/user";
 
@@ -32,7 +32,4 @@ public class HomeController {
     public String getShopHomePath(){
         return SHOP_HOME_PATH;
     }
-
-
-
 }

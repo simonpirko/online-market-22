@@ -4,9 +4,11 @@ import by.tms.configuration.principalEntity.UserPrincipal;
 import by.tms.dao.userDao.UserDao;
 import by.tms.entity.User;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,15 +19,23 @@ import java.util.Optional;
 
 @Service
 @Transactional
+@RequiredArgsConstructor
 public class UserService implements UserDetailsService {
+
     private final UserDao userDao;
 
-    public UserService(UserDao userDao) {
-        this.userDao = userDao;
+    @Override
+    public UserDetails loadUserByUsername(String emailAddress) throws UsernameNotFoundException {
+        User user = userDao.findByEmailAddress(emailAddress).orElseThrow();
+        return UserPrincipal.builder()
+                .emailAddress(user.getEmailAddress())
+                .password(user.getPassword())
+                .role(user.getRole())
+                .build();
     }
 
-
     public User save(User user) {
+        user.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));
         return userDao.save(user);
     }
 
@@ -59,16 +69,6 @@ public class UserService implements UserDetailsService {
 
     public void update(User user) {
         userDao.update(user);
-    }
-
-    @Override
-    public UserDetails loadUserByUsername(String emailAddress) throws UsernameNotFoundException {
-        User user = userDao.findByEmailAddress(emailAddress).orElseThrow();
-        return UserPrincipal.builder()
-                .emailAddress(user.getEmailAddress())
-                .password(user.getPassword())
-                .role(user.getRole())
-                .build();
     }
 }
 
