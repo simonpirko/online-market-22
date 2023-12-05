@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>User</title>
+</head>
+<body>
+<form th:method="POST" th:action="@{/user}" th:object="${user}">
+  <label for ="email_address">Enter email address</label>
+  <input type ="text" th:field="*{email_address}" id="email_address"/>
+  <br/>
+  <label for ="email_address">Enter phone number</label>
+  <input type ="text" th:field="*{phone_number}" id="phone_number"/>
+  <br/>
+  <label for ="email_address">Enter password</label>
+  <input type ="text" th:field="*{password}" id="password"/>
+  <br/>
+  <input type="submit" value="Submit"/>
+</form>
+</body>
+</html>
