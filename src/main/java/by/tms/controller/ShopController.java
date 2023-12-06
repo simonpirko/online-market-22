@@ -3,7 +3,6 @@ package by.tms.controller;
 import by.tms.entity.Shop;
 import by.tms.service.ShopService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -30,7 +29,7 @@ public class ShopController {
 
         if (shop.isPresent()){
             model.addAttribute("shop", shop);
-            return "/shop";
+            return "shop.html";
         } else {
             return "/shop-not-found";
         }

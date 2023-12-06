@@ -14,7 +14,7 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class CatalogProduct {
+public class CatalogProductDto {
 
     private String name;
     private BigDecimal price;

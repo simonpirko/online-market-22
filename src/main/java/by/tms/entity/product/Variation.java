@@ -1,15 +1,24 @@
-package by.tms.entity;
+package by.tms.entity.product;
 
 /*
     @author Ilya Moiseenko on 19.11.23
 */
+
+import by.tms.entity.AbstractEntity;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
 @Table(name = "tb_variation")
-public class Variation extends AbstractEntity{
+@Getter
+@Setter
+@Builder
+@ToString
+@NoArgsConstructor
+@AllArgsConstructor
+public class Variation extends AbstractEntity {
 
     @Column(name = "name", nullable = false, unique = true)
     private String name;

@@ -48,4 +48,9 @@ public class ShoppingCartService {
         shoppingCartDao.update(shoppingCart);
     }
 
+    @Transactional(readOnly = true)
+    public boolean isEmpty(ShoppingCart shoppingCart){
+        return shoppingCartDao.isEmpty(shoppingCart);
+    }
+
 }
