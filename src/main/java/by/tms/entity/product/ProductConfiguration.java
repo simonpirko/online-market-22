@@ -1,4 +1,4 @@
-package by.tms.entity.catalogProduct;
+package by.tms.entity.product;
 
 import by.tms.entity.AbstractEntity;
 import by.tms.entity.Promotion;
@@ -17,14 +17,14 @@ import java.util.List;
 @AllArgsConstructor
 public class ProductConfiguration extends AbstractEntity {
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne
     @JoinColumn(name = "product_id", referencedColumnName = "id")
     private Product product;
 
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany
     private List<VariationOption> variationOptions;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne
     @JoinColumn(name = "promotion_id", referencedColumnName = "id")
     private Promotion promotion;
 

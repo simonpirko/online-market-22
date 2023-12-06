@@ -2,7 +2,7 @@ package by.tms.dao.shoppingCartDao;
 
 import by.tms.dao.Dao;
 import by.tms.entity.ShoppingCart;
-import by.tms.entity.catalogProduct.ProductConfiguration;
+import by.tms.entity.product.ProductConfiguration;
 import org.hibernate.SessionFactory;
 import org.hibernate.Session;
 import org.springframework.stereotype.Repository;

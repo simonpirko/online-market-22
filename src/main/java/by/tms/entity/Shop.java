@@ -1,7 +1,7 @@
 package by.tms.entity;
 
 import by.tms.entity.address.Address;
-import by.tms.entity.catalogProduct.Product;
+import by.tms.entity.product.Product;
 import by.tms.entity.shopOrder.ShippingMethod;
 import lombok.Getter;
 import lombok.Setter;
@@ -20,7 +20,7 @@ public class Shop extends AbstractEntity{
    @Column(name = "name")
     private String name;
 
-   @OneToMany(fetch = FetchType.EAGER)
+   @OneToMany
     private List<Address> shopAddresses;
 
    @ManyToMany(fetch = FetchType.EAGER)

@@ -5,7 +5,7 @@ package by.tms.service;
 */
 
 import by.tms.dao.productCategoryDao.ProductCategoryDao;
-import by.tms.entity.catalogProduct.ProductCategory;
+import by.tms.entity.product.ProductCategory;
 import by.tms.exception.NotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

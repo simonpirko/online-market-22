@@ -3,7 +3,7 @@ package by.tms.controller;
 import by.tms.dto.LoginUserDto;
 import by.tms.dto.RegistrationUserDto;
 import by.tms.entity.User;
-import by.tms.services.UserService;
+import by.tms.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -77,7 +77,7 @@ public class UserController {
         if(bindingResult.hasErrors()){
             return "user/updatedUser";
         }
-        userService.update(id);
+        userService.update(userService.findById(id).get());
         return "shop/";
     }
     @DeleteMapping("/delete/{id}")

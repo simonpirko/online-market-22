@@ -1,6 +1,6 @@
 package by.tms.entity;
 
-import by.tms.entity.catalogProduct.ProductConfiguration;
+import by.tms.entity.product.ProductConfiguration;
 import lombok.*;
 
 import javax.persistence.*;
@@ -20,7 +20,7 @@ public class ShoppingCart extends AbstractEntity{
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
 
-    @ManyToMany(cascade =CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToMany(cascade =CascadeType.ALL)
     private List<ProductConfiguration> productsInShoppingCart;
 
 

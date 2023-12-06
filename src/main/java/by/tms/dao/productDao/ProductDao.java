@@ -6,7 +6,7 @@ package by.tms.dao.productDao;
 
 
 import by.tms.dao.Dao;
-import by.tms.entity.catalogProduct.Product;
+import by.tms.entity.product.Product;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
