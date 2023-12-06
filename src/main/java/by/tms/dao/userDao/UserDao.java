@@ -6,6 +6,7 @@ import by.tms.entity.Role;
 import by.tms.entity.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -19,11 +20,14 @@ import javax.transaction.Transactional;
 @Repository
 @Transactional
 public class UserDao implements Dao<User, Long> {
-    private final static String FIND_ALL = "FROM User";
-    private final static String DELETE_BY_ID = "DELETE FROM User u WHERE u.id =:id";
-    private final static String FIND_BY_PHONE = "SELECT u FROM User u WHERE u.phone_number = :phone_number";
-    private final SessionFactory sessionFactory;
 
+    private final static String FIND_BY_USERNAME = "SELECT u FROM User u WHERE u. username = : username";
+    private final static String FIND_ALL = "FROM User";
+
+    private final static String FIND_BY_PHONE = "SELECT u FROM User u WHERE u.phoneNumber = :phone_number";
+    private final static String DELETE_BY_ID = "DELETE FROM User u WHERE u.id =:id";
+
+    private final SessionFactory sessionFactory;
     public UserDao(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
@@ -47,6 +51,7 @@ public class UserDao implements Dao<User, Long> {
             return Optional.empty();
         }
     }
+
 
     @Override
     public List<User> findAll() {
@@ -102,6 +107,20 @@ public class UserDao implements Dao<User, Long> {
 
         User user = session.get(User.class, phoneNumber);
 
+        session.close();
+        if (user != null) {
+            return Optional.of(user);
+        } else {
+            return Optional.empty();
+        }
+    }
+
+    public Optional<User> findByUsername(String username) {
+        Session session = sessionFactory.openSession();
+        session
+                .createQuery(FIND_BY_USERNAME, User.class);
+
+        User user = session.get(User.class, username);
         session.close();
         if (user != null) {
             return Optional.of(user);

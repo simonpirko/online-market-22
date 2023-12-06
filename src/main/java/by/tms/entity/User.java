@@ -13,10 +13,11 @@ import java.util.List;
 @Setter
 @ToString
 @Table(name = "tb_user")
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name="user_type")
 @Entity
 public  class User extends AbstractEntity {
+
+    @Column(name = "username",nullable = false)
+    private String username;
 
     @Column(name = "email_address", nullable = false)
     private String emailAddress;

@@ -16,13 +16,10 @@ import javax.transaction.Transactional;
 @Setter
 @ToString
 public class LoginUserDto {
-    @NotEmpty
-    @NotBlank
-    private String emailAddress;
 
     @NotEmpty
     @NotBlank
-    private String phoneNumber;
+    private String username;
 
     @NotEmpty
     @NotBlank

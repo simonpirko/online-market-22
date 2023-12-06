@@ -67,6 +67,10 @@ public class UserService {
 
 
     @Transactional(readOnly = true)
+    public Optional<User> findByUsername(String username) {return userDao.findByUsername(username);}
+
+
+    @Transactional(readOnly = true)
     public void assignRoleToUser(User user, Role role){
         userDao.assignRoleToUser(user, role);
     }
