@@ -14,11 +14,9 @@ import java.util.Optional;
         componentModel = "spring"
 )
 public interface MapStructMapper {
-
-    Optional<User> registrationUserDtoToUser(RegistrationUserDto registrationUserDto);
-    Optional<LoginUserDto> userToLoginUserDto(User user);
-    Optional<ProductConfigurationDto> productToProductConfigurationDto(ProductConfiguration productConfiguration);
-    Optional<CatalogProductDto> productToCatalogProduct(ProductConfiguration productConfiguration);
-
+    User registrationUserDtoToUser(RegistrationUserDto registrationUserDto);
+    LoginUserDto userToLoginUserDto(User user);
+    ProductConfigurationDto productToProductConfigurationDto(ProductConfiguration productConfiguration);
+    CatalogProductDto productToCatalogProduct(ProductConfiguration productConfiguration);
 
 }
