@@ -6,6 +6,9 @@
 </head>
 <body>
 <form th:method="POST" th:action="@{/user}" th:object="${user}">
+  <label for ="email_address">Enter username</label>
+  <input type ="text" th:field="*{username}" id="username"/>
+  <br/>
   <label for ="email_address">Enter email address</label>
   <input type ="text" th:field="*{email_address}" id="email_address"/>
   <br/>
