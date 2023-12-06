@@ -53,8 +53,8 @@ public class UserController {
         if (bindingResult.hasErrors()) {
             return "user/login";
         }
-        session.setAttribute("current user", loginUserDto.getEmailAddress());
-        System.out.println(loginUserDto.getEmailAddress());
+        session.setAttribute("current user", loginUserDto.getUsername());
+        System.out.println(loginUserDto.getUsername());
         return "shop/";
 
     }
