@@ -17,10 +17,8 @@ import java.util.Optional;
 public class ShopOrderController {
     private final static String CREATE_SHOP_ORDER_PATH = "create";
     private final static String GET_ALL_SHOP_ORDERS_PATH = "all_shop_orders";
-
     private final static String ATTRIBUTE_SHOP_ORDER = "shop_order";
     private final static String ATTRIBUTE_SHOPPING_CART = "shopping_cart";
-
     private final ShopOrderService shopOrderService;
     private final ShoppingCartService shoppingCartService;
 
