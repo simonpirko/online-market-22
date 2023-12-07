@@ -12,6 +12,10 @@ import java.time.LocalDate;
 @Table(name = "tb_promotion")
 public class Promotion extends AbstractEntity{
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     @Column(name = "name", nullable = false)
     private String name;
 
