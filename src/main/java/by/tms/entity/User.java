@@ -7,16 +7,21 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Getter
 @Setter
 @ToString
 @Table(name = "tb_user")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name="user_type")
 @Entity
 public  class User extends AbstractEntity {
 
-    @Column(name = "username",nullable = false)
+
+    @Column(name = "user_name", nullable = false)
     private String username;
 
     @Column(name = "email_address", nullable = false)
@@ -28,9 +33,10 @@ public  class User extends AbstractEntity {
     @Column(name = "password", nullable = false)
     private String password;
 
+    @ElementCollection(fetch = FetchType.EAGER)
     @Enumerated(EnumType.STRING)
     @Column(name = "role")
-    private Role role;
+    private Set<Role> role = new HashSet<>();
 
 
     @OneToMany

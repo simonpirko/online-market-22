@@ -19,7 +19,7 @@ import javax.transaction.Transactional;
 
     private final static String FIND_ALL = "FROM Shop";
     private final static String DELETE_BY_ID = "DELETE FROM Shop s WHERE s.id = :id";
-    private final static String FIND_BY_USER_ID = "SELECT s FROM Shop s WHERE s.user_id = :user_id";
+    private final static String FIND_BY_USER_ID = "SELECT s FROM Shop s WHERE s.id = :user_id";
     private final SessionFactory sessionFactory;
     
     @Autowired

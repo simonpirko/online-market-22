@@ -28,6 +28,7 @@ public class UserDao implements Dao<User, Long> {
     private final static String DELETE_BY_ID = "DELETE FROM User u WHERE u.id =:id";
 
     private final SessionFactory sessionFactory;
+
     public UserDao(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
@@ -51,7 +52,6 @@ public class UserDao implements Dao<User, Long> {
             return Optional.empty();
         }
     }
-
 
     @Override
     public List<User> findAll() {
@@ -93,7 +93,7 @@ public class UserDao implements Dao<User, Long> {
 
     public void assignRoleToUser(User user, Role role){
         Session session = sessionFactory.openSession();
-        user.setRole(role);
+        user.getRole().add(role);
 
         session.update(user);
     }
@@ -128,7 +128,6 @@ public class UserDao implements Dao<User, Long> {
             return Optional.empty();
         }
     }
-
 }
 
 

@@ -17,11 +17,7 @@ import java.util.Optional;
 public class ShoppingCartDao implements Dao<ShoppingCart, Long> {
     private final static String FIND_ALL = "FROM ShoppingCart";
     private final static String DELETE_BY_ID = "DELETE FROM ShoppingCart shc WHERE shc.id = :id";
-    private final static String DELETE_ITEMS = """
-            DELETE parent, children FROM PARENT parent +
-            LEFT JOIN CHILDREN children ON parent.ID = children.PARENT_ID +
-            WHERE PARENT.ID = :id
-            """;
+    private final static String DELETE_ITEMS = "";
 
     private final SessionFactory sessionFactory;
 

@@ -16,7 +16,6 @@ import javax.sql.DataSource;
 import java.util.Properties;
 
 @Configuration
-@ComponentScan
 @EnableWebMvc
 @PropertySource("classpath:datasource.properties")
 @EnableTransactionManagement

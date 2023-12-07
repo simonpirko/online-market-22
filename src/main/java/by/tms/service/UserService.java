@@ -1,10 +1,14 @@
 package by.tms.service;
 
+import by.tms.configuration.principalEntity.UserPrincipal;
 import by.tms.dao.userDao.UserDao;
 import by.tms.entity.Role;
 import by.tms.entity.User;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -16,15 +20,26 @@ import java.util.Set;
 
 @Service
 @Transactional
-public class UserService {
+public class UserService implements UserDetailsService {
+
     private final UserDao userDao;
 
     public UserService(UserDao userDao) {
         this.userDao = userDao;
     }
 
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        User user = userDao.findByUsername(username).orElseThrow();
+        return UserPrincipal.builder()
+                .username(user.getUsername())
+                .password(user.getPassword())
+                .role(user.getRole())
+                .build();
+    }
 
     public User save(User user) {
+        user.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));
         return userDao.save(user);
     }
 
@@ -76,8 +91,6 @@ public class UserService {
         userDao.assignRoleToUser(user, role);
     }
 }
-
-
 
 
 
