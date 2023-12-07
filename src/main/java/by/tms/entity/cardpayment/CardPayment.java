@@ -21,7 +21,7 @@ public class CardPayment extends AbstractEntity {
     private User user;
 
     @ManyToOne
-    @JoinColumn(name = "card_payment_id", referencedColumnName = "payment_method_id")
+    @JoinColumn(name = "card_payment_id", referencedColumnName = "id")
     private PaymentMethod paymentMethod;
 
     @Enumerated(EnumType.STRING)

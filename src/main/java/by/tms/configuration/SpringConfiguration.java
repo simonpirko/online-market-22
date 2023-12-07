@@ -13,7 +13,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
  */
 
 @Configuration
-@ComponentScan
+@ComponentScan("by.tms")
 @EnableWebMvc
 @EnableTransactionManagement
 public class SpringConfiguration {
@@ -22,7 +22,7 @@ public class SpringConfiguration {
 	public ViewResolver viewResolver() {
 		InternalResourceViewResolver internalResourceViewResolver = new InternalResourceViewResolver();
 		internalResourceViewResolver.setPrefix("/pages/");
-		internalResourceViewResolver.setSuffix(".jsp");
+		internalResourceViewResolver.setSuffix(".html");
 		return internalResourceViewResolver;
 	}
 
