@@ -1,5 +1,8 @@
 package by.tms.entity;
 
+import by.tms.entity.address.Address;
+import by.tms.entity.product.Product;
+import by.tms.entity.shopOrder.ShippingMethod;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -15,16 +18,20 @@ import java.util.List;
 public class Shop extends AbstractEntity{
 
    @Column(name = "name")
-    public String name;
+    private String name;
 
    @OneToMany
-   @JoinColumn()
-    public String shopAddressId;
-    public String productConfigurationId;
-    public String shippingMethodsId;
-    public String userOwner;
+    private List<Address> shopAddresses;
+
+   @ManyToMany(fetch = FetchType.EAGER)
+    private List<Product> product;
+
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "shipping_method")
+    private ShippingMethod shippingMethod;
 
     @ManyToOne
-    @JoinColumn(name="shop_id",referencedColumnName = "user_id")
-    public  User user;
+    @JoinColumn(name="shop_id",referencedColumnName = "id")
+    private   User user;
 }

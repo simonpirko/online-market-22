@@ -16,7 +16,6 @@ import javax.sql.DataSource;
 import java.util.Properties;
 
 @Configuration
-@ComponentScan
 @EnableWebMvc
 @PropertySource("classpath:datasource.properties")
 @EnableTransactionManagement
@@ -67,7 +66,7 @@ public class HibernateConfiguration {
     @Bean
     public Properties hibernateProperties() {
         Properties hibernateProperties = new Properties();
-        hibernateProperties.setProperty("hibernate.hbm2ddl.auto", "create-drop");
+        hibernateProperties.setProperty("hibernate.hbm2ddl.auto", "update");
         hibernateProperties.setProperty("hibernate.dialect", "org.hibernate.dialect.PostgreSQL82Dialect");
         hibernateProperties.setProperty("hibernate.dialect.show_sql", "true");
         hibernateProperties.setProperty("hibernate.format_sql", "true");

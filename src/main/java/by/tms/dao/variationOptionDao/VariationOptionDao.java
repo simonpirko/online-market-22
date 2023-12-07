@@ -5,7 +5,7 @@ package by.tms.dao.variationOptionDao;
 */
 
 import by.tms.dao.Dao;
-import by.tms.entity.VariationOption;
+import by.tms.entity.product.VariationOption;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 

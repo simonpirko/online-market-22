@@ -7,6 +7,7 @@ import lombok.ToString;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.HashSet;
 import java.util.Set;
 
 @Getter
@@ -21,12 +22,12 @@ public class CardPayment extends AbstractEntity {
     private User user;
 
     @ManyToOne
-    @JoinColumn(name = "card_payment_id", referencedColumnName = "payment_method_id")
+    @JoinColumn(name = "card_payment_id", referencedColumnName = "id")
     private PaymentMethod paymentMethod;
 
     @Enumerated(EnumType.STRING)
     @ElementCollection(fetch = FetchType.EAGER)
-    private Set<CardType> cardType;
+    private Set<CardType> cardType = new HashSet<>();
 
     @Column(name = "provider")
     private String provider;

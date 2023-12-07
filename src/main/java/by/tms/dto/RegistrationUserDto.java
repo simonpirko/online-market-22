@@ -15,6 +15,12 @@ import javax.persistence.Enumerated;
 @Setter
 @ToString
 public class RegistrationUserDto {
+
+    @NotEmpty
+    @NotBlank
+    @Range(min = 2,max = 16)
+    private String username;
+
     @NotEmpty
     @NotBlank
     private String emailAddress;

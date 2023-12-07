@@ -1,10 +1,10 @@
-package by.tms.services;
+package by.tms.service;
 
 import by.tms.configuration.principalEntity.UserPrincipal;
 import by.tms.dao.userDao.UserDao;
+import by.tms.entity.Role;
 import by.tms.entity.User;
 
-import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -15,6 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
+import java.util.Set;
 
 
 @Service
@@ -73,9 +74,23 @@ public class UserService implements UserDetailsService {
     public void update(User user) {
         userDao.update(user);
     }
+
+
+    @Transactional(readOnly = true)
+    public Optional<User> findByPhone(String phoneNumber) {
+        return userDao.findByPhone(phoneNumber);
+    }
+
+
+    @Transactional(readOnly = true)
+    public Optional<User> findByUsername(String username) {return userDao.findByUsername(username);}
+
+
+    @Transactional(readOnly = true)
+    public void assignRoleToUser(User user, Role role){
+        userDao.assignRoleToUser(user, role);
+    }
 }
-
-
 
 
 

@@ -7,6 +7,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Getter
@@ -19,7 +20,7 @@ public class PaymentMethod extends AbstractEntity {
     @Column(name = "name", unique = true, nullable = false)
     @Enumerated(EnumType.STRING)
     @ElementCollection(fetch = FetchType.EAGER)
-    private Set<PaymentMethodEnum> paymentMethodEnum;
+    private Set<PaymentMethodEnum> paymentMethodEnum = new HashSet<>();
 
     @ManyToOne
     @JoinColumn(name="shop_id",referencedColumnName = "id")

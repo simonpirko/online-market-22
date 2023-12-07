@@ -1,6 +1,6 @@
 package by.tms.configuration;
 
-import by.tms.services.UserService;
+import by.tms.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -10,7 +10,7 @@ import java.time.LocalDate;
 
 @Entity
 @Table(name = "tb_promotion")
-public class Promotion extends AbstractEntity{
+public class Promotion extends AbstractEntity {
 
     @Column(name = "name", nullable = false)
     private String name;

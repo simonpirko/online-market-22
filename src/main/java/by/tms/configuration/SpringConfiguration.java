@@ -11,7 +11,6 @@ import org.thymeleaf.spring5.SpringTemplateEngine;
 import org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 import org.thymeleaf.templatemode.TemplateMode;
-import org.thymeleaf.templateresolver.ITemplateResolver;
 
 /**
  * @author Simon Pirko on 19.11.23
@@ -28,7 +27,7 @@ public class SpringConfiguration {
 		templateResolver.setPrefix("/pages/");
 		templateResolver.setSuffix(".html");
 		templateResolver.setTemplateMode(TemplateMode.HTML);
-		templateResolver.setCacheable(true);
+		templateResolver.setCacheable(false);
 		return templateResolver;
 	}
 
@@ -43,8 +42,6 @@ public class SpringConfiguration {
 	public ThymeleafViewResolver viewResolver(){
 		ThymeleafViewResolver viewResolver = new ThymeleafViewResolver();
 		viewResolver.setTemplateEngine(templateEngine());
-		viewResolver.setOrder(1);
-		viewResolver.setViewNames(new String[] {".html", ".xhtml"});
 		return viewResolver;
 	}
 

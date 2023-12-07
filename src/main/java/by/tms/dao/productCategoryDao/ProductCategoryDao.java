@@ -5,10 +5,7 @@ package by.tms.dao.productCategoryDao;
 */
 
 import by.tms.dao.Dao;
-import by.tms.entity.ProductCategory;
-import com.sun.xml.bind.v2.model.core.ID;
-import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
+import by.tms.entity.product.ProductCategory;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 

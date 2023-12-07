@@ -2,7 +2,7 @@ package by.tms.dao.shoppingCartDao;
 
 import by.tms.dao.Dao;
 import by.tms.entity.ShoppingCart;
-import by.tms.entity.User;
+import by.tms.entity.product.ProductConfiguration;
 import org.hibernate.SessionFactory;
 import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
@@ -17,6 +17,7 @@ import java.util.Optional;
 public class ShoppingCartDao implements Dao<ShoppingCart, Long> {
     private final static String FIND_ALL = "FROM ShoppingCart";
     private final static String DELETE_BY_ID = "DELETE FROM ShoppingCart shc WHERE shc.id = :id";
+    private final static String DELETE_ITEMS = "";
 
     private final SessionFactory sessionFactory;
 
@@ -82,6 +83,39 @@ public class ShoppingCartDao implements Dao<ShoppingCart, Long> {
         Session session = sessionFactory.openSession();
         session.update(shoppingCart);
         session.close();
+    }
+
+
+    public boolean isEmpty(ShoppingCart shoppingCart) {
+        Session session = sessionFactory.openSession();
+        List<ProductConfiguration> productsInShoppingCart = session
+                .get(ShoppingCart.class, shoppingCart.getId())
+                .getProductsInShoppingCart();
+
+        if (!productsInShoppingCart.isEmpty()) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+
+    public ShoppingCart clearAll(Long id) {
+        Session session = sessionFactory.openSession();
+        ShoppingCart shoppingCart = session.get(ShoppingCart.class, id);
+
+        session
+                .createQuery(DELETE_ITEMS, ShoppingCart.class)
+                .executeUpdate();
+        session.close();
+
+        return shoppingCart;
+    }
+
+
+    public ShoppingCart addItem(ShoppingCart shoppingCart, Long id) {
+        Session session = sessionFactory.openSession();
+        return shoppingCart;
     }
 
 }
