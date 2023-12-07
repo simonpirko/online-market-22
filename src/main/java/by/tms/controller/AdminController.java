@@ -5,6 +5,8 @@ import by.tms.entity.Shop;
 import by.tms.entity.User;
 import by.tms.service.ShopService;
 import by.tms.service.UserService;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -17,7 +19,7 @@ import java.util.Optional;
 @RequestMapping("/admin")
 public class AdminController {
 
-    private final static String ADMIN_HOME_PATH = "home";
+    private final static String ADMIN_HOME_PATH = "user/home";
     private final static String ROLE_MANAGEMENT_PATH = "role_management";
 
     private final static String ATTRIBUTE_USER = "user";
@@ -30,6 +32,7 @@ public class AdminController {
 
     private final UserService userService;
     private final ShopService shopService;
+
 
     public AdminController(UserService userService, ShopService shopService) {
         this.userService = userService;

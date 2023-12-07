@@ -32,6 +32,6 @@ public class Shop extends AbstractEntity{
     private ShippingMethod shippingMethod;
 
     @ManyToOne
-    @JoinColumn(name="shop_id",referencedColumnName = "user_id")
+    @JoinColumn(name="shop_id",referencedColumnName = "id")
     private   User user;
 }

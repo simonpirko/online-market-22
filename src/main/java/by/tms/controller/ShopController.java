@@ -2,7 +2,6 @@ package by.tms.controller;
 
 import by.tms.entity.Shop;
 import by.tms.service.ShopService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -14,13 +13,16 @@ import java.util.Optional;
 @RequestMapping("/shop")
 public class ShopController {
 
-    @Autowired
-    ShopService shopService;
+    private final ShopService shopService;
+
+    public ShopController(ShopService shopService) {
+        this.shopService = shopService;
+    }
 
     @PostMapping
     private String createShop(@ModelAttribute("shop") Shop shop){
         shopService.save(shop);
-        return "/shops";
+        return "/shop";
     }
 
     @GetMapping("/{id}")
@@ -29,7 +31,7 @@ public class ShopController {
 
         if (shop.isPresent()){
             model.addAttribute("shop", shop);
-            return "shop.html";
+            return "shop";
         } else {
             return "/shop-not-found";
         }
@@ -50,7 +52,7 @@ public class ShopController {
         if (shop.isPresent()){
             shopService.remove(shop.get());
         }
-        return "/shops";
+        return "/shop";
     }
 
     @PutMapping("/{id}")
@@ -60,7 +62,7 @@ public class ShopController {
         if (shop.isPresent()){
             shopService.update(shop.get());
         }
-        return "/shops";
+        return "/shop";
     }
 
     @GetMapping("/user/{id}")

@@ -3,19 +3,26 @@ package by.tms.dao.ShopDao;
 import by.tms.dao.Dao;
 import by.tms.entity.Shop;
 import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.hibernate.Session;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class ShopDao implements Dao<Shop, Long> {
+import javax.transaction.Transactional;
+
+    @Repository
+    @Transactional
+    public class ShopDao implements Dao<Shop, Long> {
 
     private final static String FIND_ALL = "FROM Shop";
     private final static String DELETE_BY_ID = "DELETE FROM Shop s WHERE s.id = :id";
     private final static String FIND_BY_USER_ID = "SELECT s FROM Shop s WHERE s.user_id = :user_id";
     private final SessionFactory sessionFactory;
-
+    
+    @Autowired
     public ShopDao(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }

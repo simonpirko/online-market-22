@@ -4,6 +4,7 @@ import by.tms.dao.userDao.UserDao;
 import by.tms.entity.Role;
 import by.tms.entity.User;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

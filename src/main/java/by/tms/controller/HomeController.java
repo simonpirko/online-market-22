@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class HomeController {
 
     private final static String HOME_PATH = "home_page";
-    private final static String USER_HOME_PATH = "user";
-    private final static String SHOP_HOME_PATH = "shop.html";
+    private final static String USER_HOME_PATH = "user/user";
+    private final static String SHOP_HOME_PATH = "shop";
 
 
     @GetMapping("/home_page")
