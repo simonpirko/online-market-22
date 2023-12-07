@@ -25,10 +25,10 @@ public class UserService implements UserDetailsService {
     private final UserDao userDao;
 
     @Override
-    public UserDetails loadUserByUsername(String emailAddress) throws UsernameNotFoundException {
-        User user = userDao.findByEmailAddress(emailAddress).orElseThrow();
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        User user = userDao.findByUsername(username).orElseThrow();
         return UserPrincipal.builder()
-                .emailAddress(user.getEmailAddress())
+                .username(user.getUsername())
                 .password(user.getPassword())
                 .role(user.getRole())
                 .build();
