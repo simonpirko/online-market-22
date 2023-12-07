@@ -19,6 +19,8 @@ import java.util.Set;
 @DiscriminatorColumn(name="user_type")
 @Entity
 public  class User extends AbstractEntity {
+
+
     @Column(name = "user_name", nullable = false)
     private String username;
 

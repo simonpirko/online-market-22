@@ -1,4 +1,3 @@
-
 package by.tms.dao.userDao;
 
 import by.tms.dao.Dao;
@@ -19,6 +18,7 @@ import javax.transaction.Transactional;
 public class UserDao implements Dao<User, Long> {
     private final static String FIND_ALL = "FROM User";
     private final static String DELETE_BY_ID = "DELETE  FROM User u WHERE u.id =:id";
+
     private final SessionFactory sessionFactory;
 
     public UserDao(SessionFactory sessionFactory) {
@@ -93,8 +93,4 @@ public class UserDao implements Dao<User, Long> {
             return Optional.empty();
         }
     }
-
 }
-
-
-
