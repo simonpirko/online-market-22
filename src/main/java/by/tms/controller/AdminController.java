@@ -33,7 +33,7 @@ public class AdminController {
     private final UserService userService;
     private final ShopService shopService;
 
-    @Autowired
+
     public AdminController(UserService userService, ShopService shopService) {
         this.userService = userService;
         this.shopService = shopService;

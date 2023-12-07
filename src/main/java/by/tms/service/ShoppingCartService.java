@@ -53,4 +53,9 @@ public class ShoppingCartService {
         return shoppingCartDao.isEmpty(shoppingCart);
     }
 
+
+    public ShoppingCart clearAll(Long id) {
+        return shoppingCartDao.clearAll(id);
+    }
+
 }

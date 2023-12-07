@@ -17,6 +17,11 @@ import java.util.Optional;
 public class ShoppingCartDao implements Dao<ShoppingCart, Long> {
     private final static String FIND_ALL = "FROM ShoppingCart";
     private final static String DELETE_BY_ID = "DELETE FROM ShoppingCart shc WHERE shc.id = :id";
+    private final static String DELETE_ITEMS = """
+            DELETE parent, children FROM PARENT parent +
+            LEFT JOIN CHILDREN children ON parent.ID = children.PARENT_ID +
+            WHERE PARENT.ID = :id
+            """;
 
     private final SessionFactory sessionFactory;
 
@@ -88,14 +93,33 @@ public class ShoppingCartDao implements Dao<ShoppingCart, Long> {
     public boolean isEmpty(ShoppingCart shoppingCart) {
         Session session = sessionFactory.openSession();
         List<ProductConfiguration> productsInShoppingCart = session
-                                                            .get(ShoppingCart.class, shoppingCart.getId())
-                                                            .getProductsInShoppingCart();
+                .get(ShoppingCart.class, shoppingCart.getId())
+                .getProductsInShoppingCart();
 
         if (!productsInShoppingCart.isEmpty()) {
             return false;
         } else {
             return true;
         }
+    }
+
+
+    public ShoppingCart clearAll(Long id) {
+        Session session = sessionFactory.openSession();
+        ShoppingCart shoppingCart = session.get(ShoppingCart.class, id);
+
+        session
+                .createQuery(DELETE_ITEMS, ShoppingCart.class)
+                .executeUpdate();
+        session.close();
+
+        return shoppingCart;
+    }
+
+
+    public ShoppingCart addItem(ShoppingCart shoppingCart, Long id) {
+        Session session = sessionFactory.openSession();
+        return shoppingCart;
     }
 
 }
