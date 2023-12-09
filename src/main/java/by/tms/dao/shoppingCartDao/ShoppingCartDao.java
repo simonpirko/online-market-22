@@ -17,8 +17,6 @@ import java.util.Optional;
 public class ShoppingCartDao implements Dao<ShoppingCart, Long> {
     private final static String FIND_ALL = "FROM ShoppingCart";
     private final static String DELETE_BY_ID = "DELETE FROM ShoppingCart shc WHERE shc.id = :id";
-    private final static String DELETE_ITEMS = "";
-
     private final SessionFactory sessionFactory;
 
     public ShoppingCartDao(SessionFactory sessionFactory) {
@@ -104,10 +102,11 @@ public class ShoppingCartDao implements Dao<ShoppingCart, Long> {
         Session session = sessionFactory.openSession();
         ShoppingCart shoppingCart = session.get(ShoppingCart.class, id);
 
-        session
-                .createQuery(DELETE_ITEMS, ShoppingCart.class)
-                .executeUpdate();
-        session.close();
+        List<ProductConfiguration> productsInShoppingCart = shoppingCart.getProductsInShoppingCart();
+
+        if (!productsInShoppingCart.isEmpty()) {
+            productsInShoppingCart.clear();
+        }
 
         return shoppingCart;
     }

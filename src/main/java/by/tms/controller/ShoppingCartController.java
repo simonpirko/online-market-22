@@ -41,12 +41,4 @@ public class ShoppingCartController {
 
         return ATTRIBUTE_SHOPPING_CART;
     }
-
-
-//    @PostMapping("/{id}/add_product")
-//    public String addProduct(@PathVariable("id") Long id, @ModelAttribute(ATTRIBUTE_SHOPPING_CART) ShoppingCart shoppingCart, Model model){
-//
-//
-//    }
-
 }
